@@ -1,86 +1,73 @@
-﻿## CalculoCDB
+﻿# 💰 Simulador de Investimento em CDB [B3 Test]
 
-O projeto foi gerado usando a versão 9.0.12 do [Clean.Architecture.Solution.Template](https://github.com/jasontaylordev/CleanArchitecture).
+Este projeto simula o rendimento de um investimento em CDB, considerando CDI, TB e imposto de renda regressivo. A aplicação segue os princípios de **DDD**, **SOLID** e **Clean Architecture**, utilizando **.NET 9** no backend e **Angular** no frontend.
 
------
+---
 
-### Compilação
-
-Execute o comando `dotnet build -tl` para compilar a solução.
-
------
-
-### Execução
-
-Para executar a aplicação web:
-
-```bash
-cd .\src\Web\
-dotnet watch run
-```
-
-Navegue até https://localhost:5001. A aplicação será recarregada automaticamente se você alterar qualquer um dos arquivos fonte.
-
------
-
-### Estilos e Formatação de Código
-
-O template inclui suporte ao [EditorConfig](https://editorconfig.org/) para ajudar a manter estilos de codificação consistentes entre vários desenvolvedores trabalhando no mesmo projeto em diversos editores e IDEs. O arquivo **.editorconfig** define os estilos de codificação aplicáveis a esta solução.
-
------
-
-### Criação de Código (Scaffolding)
-
-O template inclui suporte para criar novos comandos e consultas.
-
-Comece na pasta `.\src\Application\`.
-
-Para criar um novo comando:
+## 🧱 Estrutura do Projeto
 
 ```
-dotnet new ca-usecase --name CreateTodoList --feature-name TodoLists --usecase-type command --return-type int
+CalculoCDB /
+├── src /
+│   ├── Application /          	# Camada com as regras de negócio
+│   ├── Domain /    			# Camada do negócio
+│   ├── Web /					# Pasta com a camada da API e a pasta do Frontend
+│		 └── ClientApp/			# Solução Angular
+├── tests /
+│   └── Application.UnitTests / # Testes unitários da aplicação
+│   └── Domain.UnitTests /      # Testes unitários do domínio
+│   └── Web.UnitTests /         # Testes unitários da API
 ```
 
-Para criar uma nova consulta:
+---
+
+## 🚀 Como Executar
+
+### 🔧 Backend (.NET 9)
+
+1. Navegue até a pasta da API/Frontend:
+    ```
+    cd src/Web
+    ```
+
+2. Restaure os pacotes, build e execute:
+    ```
+    dotnet restore
+    dotnet build
+    dotnet run
+    ```
+3. A Aplicação estará disponível em `http://localhost:5001` ou `https://localhost:44447`.
+
+4. A API estará disponível em `http://localhost:5001/api` ou `https://localhost:44447/api`.
+
+---
+
+## 📈 Fórmula de Cálculo
 
 ```
-dotnet new ca-usecase -n GetTodos -fn TodoLists -ut query -rt TodosVm
+Valor Final = Valor Inicial × [1 + (CDI × TB)] ^ Prazo
+
+Imposto de Renda:
+- Até 6 meses: 22,5%
+- Até 12 meses: 20%
+- Até 24 meses: 17,5%
+- Acima de 24 meses: 15%
 ```
 
-Se você encontrar o erro *"No templates or subcommands found matching: 'ca-usecase'."*, instale o template e tente novamente:
+---
 
-```bash
-dotnet new install Clean.Architecture.Solution.Template::9.0.12
+## 🧪 Testes
+
+### Execução dos testes unitários
+- Na pasta raiz do projeto executar o comando:
 ```
-
------
-
-### Testes
-
-A solução contém testes de unidade, de integração, funcionais e de aceitação.
-
-Para executar os testes de unidade, integração e funcionais (excluindo os de aceitação):
-
-```bash
-dotnet test --filter "FullyQualifiedName!~AcceptanceTests"
-```
-
-Para executar os testes de aceitação, primeiro inicie a aplicação:
-
-```bash
-cd .\src\Web\
-dotnet run
-```
-
-Em seguida, em um novo console, execute os testes:
-
-```bash
-cd .\src\Web\
 dotnet test
-```
+  ```
+- Os testes serão realizados nas camadas `Application`, `Domain` e `Web`.
+---
 
------
+## 📚 Requisitos
 
-### Ajuda
-
-Para saber mais sobre o template, acesse o [site do projeto](https://github.com/jasontaylordev/CleanArchitecture). Lá você pode encontrar orientações adicionais, solicitar novos recursos, relatar um bug e discutir o template com outros usuários.
+- [.NET SDK 9](https://dotnet.microsoft.com/en-us/download)
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli)
