@@ -1,0 +1,82 @@
+{
+  "x-generator": "NSwag v14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CalculoCDB API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/CalculoCdb/calcular-cdb": {
+      "post": {
+        "tags": [
+          "CalculoCdb"
+        ],
+        "operationId": "CalculoCdb_CalcularCdb",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequisicaoInvestimentoDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultadoInvestimentoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ResultadoInvestimentoDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "resultadoBruto": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "resultadoLiquido": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "rendimentoTotal": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "impostoRenda": {
+            "type": "number",
+            "format": "decimal"
+          }
+        }
+      },
+      "RequisicaoInvestimentoDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "valorInicial": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "duracaoEmMeses": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}

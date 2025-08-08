@@ -1,0 +1,47 @@
+{
+  "name": "calculocdb",
+  "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "prestart": "node aspnetcore-https",
+    "start": "run-script-os",
+    "start:windows": "ng serve --port 44447 --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\"",
+    "start:default": "ng serve --port 44447 --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\"",
+    "build": "ng build",
+    "build:ssr": "ng run CalculoCDB:server:dev",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^20.1.6",
+    "@angular/common": "^20.1.6",
+    "@angular/compiler": "^20.1.6",
+    "@angular/core": "^20.1.6",
+    "@angular/forms": "^20.1.6",
+    "@angular/platform-browser": "^20.1.6",
+    "@angular/platform-browser-dynamic": "^20.1.6",
+    "@angular/platform-server": "^20.1.6",
+    "@angular/router": "^20.1.6",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "jquery": "^3.7.1",
+    "ngx-bootstrap": "^20.0.0",
+    "run-script-os": "^1.1.6",
+    "rxjs": "^7.8.2",
+    "zone.js": "^0.15.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^20.1.5",
+    "@angular/cli": "^20.1.5",
+    "@angular/compiler-cli": "^20.1.6",
+    "@types/node": "^24.2.0",
+    "eslint": "^9.32.0",
+    "typescript": "5.8.3"
+  },
+  "overrides": {
+    "autoprefixer": "^10.4.21",
+    "webpack": "^5.101.0"
+  }
+}
